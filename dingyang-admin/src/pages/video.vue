@@ -192,16 +192,10 @@ export default {
       var filename = Date.now() + ".mp4";
       this.videoFilename = filename;
 
-      const cos = new Cos({
-        SecretId: "*******************************",
-        SecretKey: "**********************************"
-      });
-
       var that = this;
       cos.putObject(
         {
-          Bucket: "dingyang-admin-1301593316" /* 必须 */,
-          Region: "ap-guangzhou" /* 必须 */,
+  
           Key: "videos/" + filename /* 必须 */,
           StorageClass: "STANDARD",
           Body: file // 上传文件对象
