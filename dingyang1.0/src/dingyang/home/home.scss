@@ -1,0 +1,27 @@
+@import "article-peek/article-peek", "video-peek/video-peek";
+.home {
+  display: grid;
+  grid-template-areas: "predictions stocks researches investments" "videos videos videos videos";
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  column-gap: 24px;
+  row-gap: 40px;
+
+  @media screen and (max-width: 1367px) {
+    grid-template-areas: "predictions stocks" "researches investments" "videos videos";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+  }
+  @media screen and (max-width: 699px) {
+    grid-template-areas: "predictions" "stocks" "researches" "investments" "videos";
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(5, auto);
+  }
+
+  @each $area in "predictions", "stocks", "researches", "investments", "videos" {
+    .#{$area} {
+      grid-area: #{$area};
+      width: 100%;
+    }
+  }
+}

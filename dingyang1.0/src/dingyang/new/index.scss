@@ -1,0 +1,63 @@
+@import "../footer/footer", "../app", "./article/article", "./video/video";
+
+.new-item-app {
+  @include app();
+  header {
+    display: grid;
+    grid-template: "logo title . nav" / 64px auto 1fr auto;
+    * {
+      align-self: center;
+    }
+    .logo {
+      grid-area: logo;
+    }
+    h1 {
+      grid-area: title;
+      margin-left: 24px;
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--text-color-lighter);
+      user-select: none;
+    }
+    nav {
+      grid-area: nav;
+      display: flex;
+      align-items: center;
+      a {
+        color: var(--text-color);
+        display: flex;
+        padding: 16px;
+        opacity: 0.5;
+        position: relative;
+        &:hover {
+          opacity: 1;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: -8px;
+          transform: translateX(-50%) rotate(45deg);
+          width: 16px;
+          height: 16px;
+          transition: 0.2s ease-out;
+          border: 8px solid transparent;
+          box-sizing: border-box;
+        }
+        &.router-link-active {
+          background-color: var(--theme-color-darker);
+          opacity: 1;
+          font-weight: bold;
+          transform: scale(1.05);
+          &::after {
+            border-bottom-color: var(--theme-color-darker);
+            border-right-color: var(--theme-color-darker);
+          }
+        }
+        &:not(:last-child) {
+          margin-right: 24px;
+        }
+      }
+    }
+  }
+}

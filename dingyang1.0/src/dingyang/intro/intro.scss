@@ -1,0 +1,59 @@
+.intro {
+  display: grid;
+  grid-template-areas: "photo . title . bar" "photo . . . bar" "photo . description . bar";
+  grid-template-columns: auto 1fr 1fr 72px 8px;
+  grid-template-rows: auto 72px auto;
+  img {
+    grid-area: photo;
+    width: 100%;
+    height: auto;
+    align-self: center;
+    justify-self: center;
+  }
+  h1 {
+    grid-area: title;
+    align-self: start;
+    justify-self: end;
+    font-weight: bold;
+    font-size: 54px;
+    color: var(--text-color);
+    letter-spacing: 8px;
+  }
+  .description {
+    grid-area: description;
+    align-self: end;
+    justify-self: end;
+    color: var(--text-color-lighter);
+    font-size: 18px;
+    line-height: 2;
+    p {
+      text-align: justify;
+    }
+    p:not(:last-child) {
+      margin-bottom: 36px;
+    }
+  }
+  .bar {
+    grid-area: bar;
+    background-color: var(--theme-color);
+    width: 8px;
+    height: 100%;
+  }
+
+  @media screen and (max-width: 1000px) {
+    & {
+      grid-template-columns: 200px 1fr 2fr 72px 8px;
+      h1 {
+        font-size: 36px;
+      }
+      .description {
+        font-size: 16px;
+      }
+    }
+  }
+  @media screen and (max-width: 699px) {
+    & {
+      grid-template-columns: 0 16px 1fr 72px 8px;
+    }
+  }
+}

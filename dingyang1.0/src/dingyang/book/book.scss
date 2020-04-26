@@ -1,0 +1,12 @@
+.book {
+  @media screen and (max-width: 1368px) {
+    & {
+      padding: 0 10vw;
+    }
+  }
+  @media screen and (max-width: 699px) {
+    & {
+      padding: 0;
+    }
+  }
+}

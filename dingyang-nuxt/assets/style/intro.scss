@@ -1,0 +1,46 @@
+
+.intro {
+  @media screen and (max-width: 1200px){
+    & {
+      padding-left: 15px;
+    }
+    p {
+      font-size: 16px;
+    }
+  }
+  img {  
+    width: 100%;
+    height: auto;
+    align-self: center;
+    justify-self: center;
+  }
+  .description {
+    color: #606060;
+    font-size: 18px;
+    line-height: 2;
+    h1 {
+      font-weight: bold;
+      font-size: 54px;
+      color: black;
+      text-align: right;
+      letter-spacing: 8px;
+      margin-bottom: 64px;
+      @media screen and (max-width: 1200px){
+        & {
+          font-size: 36px;
+          margin-bottom: 36px;
+        }
+      }
+    }
+    p:not(:last-child) {
+      margin-bottom: 36px;
+    }
+    .bar {
+      background-color: #e89a3f;
+      width: 8px;
+      height: 458px;
+      float: right;
+      padding: 0;
+    }
+  }  
+}

@@ -1,0 +1,83 @@
+@mixin dark-mode {
+  --text-color: #eee;
+  --text-color-lighter: #bbb;
+  --text-color-dimmed: #999;
+
+  --background: #222;
+  --background-lighter: #2a2a2a;
+  --card-background: #2a2a2a;
+  --theme-background: #2d2a24;
+}
+html {
+  font-family: "PingFang SC", "Sarasa UI SC", "思源黑体 CN Regular", "Source Han Sans CN", "Microsoft YaHei UI",
+    "Segoe UI Emoji", sans-serif;
+  scroll-behavior: smooth;
+
+  --text-color: black;
+  --text-color-lighter: #606060;
+  --text-color-dimmed: #909090;
+  --dark-text-color: white;
+  --dark-text-color-lighter: #ddd;
+  --dark-text-color-dimmed: #aaa;
+
+  --background: white;
+  --background-lighter: #eee;
+  --card-background: white;
+  --theme-background: #fffaf2;
+  --theme-color-dimmed: #e8993f33;
+  --theme-color: #e89a3f;
+  --theme-color-lighter: #ffaf3d;
+  --theme-color-darker: #d0832a;
+
+  --page-margin: 128px;
+
+  &.dark {
+    @include dark-mode();
+  }
+  @media (prefers-color-scheme: dark) {
+    & {
+      @include dark-mode();
+    }
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-color);
+}
+
+@mixin app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &,
+  & * {
+    transition: 0.2s ease-out;
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none !important;
+  }
+  main {
+    margin: 0 var(--page-margin);
+    margin-top: 32px;
+  }
+  header {
+    padding: 24px var(--page-margin) 24px var(--page-margin);
+  }
+  @media screen and (min-width: 1920px) {
+    & {
+      --page-margin: 192px;
+    }
+  }
+  @media screen and (max-width: 1368px) {
+    & {
+      --page-margin: 36px;
+    }
+  }
+  @media screen and (max-width: 699px) {
+    & {
+      --page-margin: 18px;
+    }
+  }
+}

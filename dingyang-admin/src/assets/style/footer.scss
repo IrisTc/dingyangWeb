@@ -1,0 +1,42 @@
+.footer {
+    position: static;
+    margin: 0 36px;
+    margin-top: 32px;
+    height: 100px;
+    background-color: #fffaf2;
+    .logo {
+        margin-top: 26px;
+        float: left;
+        margin-left: 16px;
+        img,p {
+            float: left;
+            margin-left: 16px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #606060;
+            line-height: 48px;
+        }
+    }
+    .footer-text {
+        float: right;
+        margin-top: 43px;
+        margin-right: 24px;
+        font-size: 14px;
+        color: #909090;
+    }
+    @media screen and (max-width: 768px) {
+        & {
+          height: 64px;
+          margin: 0 15px;
+          text-align: center;
+        }
+        .footer-text {
+          font-size: 12px;
+          margin: 0;
+          margin-top: 22px;
+          display: inline-block;
+          float: none;
+        }
+    }
+}
+

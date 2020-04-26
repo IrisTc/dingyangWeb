@@ -1,0 +1,32 @@
+.duty {
+  .header {
+    margin: 26px 0;
+    font-size: 18px;
+    color: #606060;
+    font-weight: bold;
+    .mdi {
+      color: #e89a3f;
+      transform: rotate(180deg);
+      display: inline-block;
+    }
+  }
+  p {
+    font-size: 16px;
+    margin: 26px 0;
+    line-height: 1.5;
+  }
+  strong {
+      font-weight: bold;
+      font-size: larger;
+  }
+  @media screen and (max-width: 1368px) {
+    & {
+      padding: 0 6vw;
+    }
+  }
+  @media screen and (max-width: 699px) {
+    & {
+      padding: 0;
+    }
+  }
+}

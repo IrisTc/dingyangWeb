@@ -1,0 +1,60 @@
+.intro {
+  display: grid;
+  grid-template-areas: "photo . title . bar" "photo . . . bar" "photo . description . bar";
+  grid-template-columns: auto 1fr 1fr 72px 8px;
+  grid-template-rows: auto 72px auto;
+}
+.intro img {
+  grid-area: photo;
+  width: 100%;
+  height: auto;
+  align-self: center;
+  justify-self: center;
+}
+.intro h1 {
+  grid-area: title;
+  align-self: start;
+  justify-self: end;
+  font-weight: bold;
+  font-size: 54px;
+  color: var(--text-color);
+  letter-spacing: 8px;
+}
+.intro .description {
+  grid-area: description;
+  align-self: end;
+  justify-self: end;
+  color: var(--text-color-lighter);
+  font-size: 18px;
+  line-height: 2;
+}
+.intro .description p {
+  text-align: justify;
+}
+.intro .description p:not(:last-child) {
+  margin-bottom: 36px;
+}
+.intro .bar {
+  grid-area: bar;
+  background-color: var(--theme-color);
+  width: 8px;
+  height: 100%;
+}
+@media screen and (max-width: 1000px) {
+  .intro {
+    grid-template-columns: 200px 1fr 2fr 72px 8px;
+  }
+  .intro h1 {
+    font-size: 36px;
+  }
+  .intro .description {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 699px) {
+  .intro {
+    grid-template-columns: 0 16px 1fr 72px 8px;
+  }
+}
+
+/*# sourceMappingURL=intro.css.map */

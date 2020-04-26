@@ -1,0 +1,95 @@
+@import "./peek-header";
+.video-view {
+  @include peek-header();
+  .video-play {
+    margin-bottom: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .header {
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      h1 {
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 1.2;
+        color: black;
+      }
+      .time {
+        margin-left: 32px;
+        font-size: 16px;
+        font-style: italic;
+        color: #909090;
+      }
+    }
+    video {
+      width: 60%;
+      outline: none !important;
+    }
+  }
+  .other-videos {
+    display: flex;
+    margin-top: 28px;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none !important;
+    &::-webkit-scrollbar {
+      height: 0 !important;
+      width: 0 !important;
+    }
+
+    .other-video {
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      cursor: pointer;
+      &:not(:last-child) {
+        margin-right: 28px;
+      }
+      .cover {
+        overflow: hidden;
+        height: 240px;
+        width: 400px;
+        img {
+          object-fit: cover;
+          height: inherit;
+          width: inherit;
+        }
+      }
+      &:hover .cover img {
+        transform: scale(1.05);
+      }
+      h1 {
+        margin: 14px 0 6px 0;
+        color: #606060;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .time {
+        font-size: 14px;
+        font-style: italic;
+        color: #606060;
+      }
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    & {
+      .video-play {
+        video {
+          width: 100%;
+        }
+      }
+      .other-videos {
+        .other-video {
+          .cover {
+            height: 160px;
+            width: 240px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@import "./peek-header";
+.video-peek {
+  @include peek-header();
+  .video-list {
+    display: flex;
+    overflow: auto;
+    margin-top: 24px;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 50%;
+    scrollbar-width: none !important;
+    &::-webkit-scrollbar {
+      height: 0 !important;
+    }
+    .card {
+      position: relative;
+      height: 280px;
+      width: 400px;
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      scroll-snap-align: start;
+      overflow: hidden;
+      cursor: pointer;
+
+      &:not(:last-child) {
+        margin-right: 16px;
+      }
+      .title-container {
+        background-color: #000a;
+        padding: 14px;
+        z-index: 1;
+        .title {
+          font-weight: bold;
+          font-size: 18px;
+          line-height: 1.4;
+          color: white;
+        }
+      }
+      .background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+      &:hover .background {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
