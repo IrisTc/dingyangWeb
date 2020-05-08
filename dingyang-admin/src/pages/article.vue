@@ -202,8 +202,8 @@ export default {
 
     uploadFile() {
       const cos = new Cos({
-        SecretId: "AKID2yVkjaEMJ0b25XqZ3HlynLbbOuhEcyrT",
-        SecretKey: "1mHVUCLMzNUKl2SbLpBk3wZpojES9Zrj"
+        SecretId: "**********************",
+        SecretKey: "**************************"
       });
 
       let filename = Date.now() + ".jpg";
@@ -216,7 +216,7 @@ export default {
         });
         cos.putObject(
           {
-            Bucket: "dingyang-admin-1301593316" /* 必须 */,
+            Bucket: "******************" /* 必须 */,
             Region: "ap-guangzhou" /* 必须 */,
             Key: "coverImg/" + filename /* 必须 */,
             StorageClass: "STANDARD",
