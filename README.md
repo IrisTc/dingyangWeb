@@ -20,8 +20,6 @@
 
 - 使用`vue-cli`脚手架工具开发，重新结构化原代码后，组件和页面分开
 
-- `vue-li`是基于`webpack`模板的，可以直接进行插件配置实现打包过程
-
 - `webpack`也可以直接配置mock数据
 
   ```js
@@ -121,6 +119,16 @@
 
 - 数据库使用的是MongoDB，服务器端用Node.js搭建了一个简单的基于Express框架的运行环境，目前云函数和服务器端都有相同的接口
 
+- 如果要在本地测试注意删除Nuxt相关预渲染代码
+
+  ```js
+  shell.cd('/www/wwwroot/dy.tcualhp.cn/dingyang-nuxt')
+  if (shell.exec('npm run generate').code !== 0) {//执行npm run generate 命令
+       shell.echo('generate commit failed');
+       shell.exit(1);
+   }
+  ```
+
 - 接口调用：
 
   URL前缀：`dy.tcualhp/api`
@@ -188,7 +196,9 @@
   
   数据格式
   
-  ```
+  - 注意因为没有Vue中渲染markdown格式的插件，所以在后台存的时候就要存html代码
+  
+  ```json
   {
       "title" : "华银德洋基金S26669分红公告",
       "description" : "这里是简介",
@@ -201,7 +211,7 @@
   
   `GET    /huayin/other?type=`
   
-  ```
+  ```json
   {
       "type" : "about",
       "typeTitle" : "关于我们",
@@ -221,6 +231,8 @@
 ### dingyang-admin
 
 因为管理不需要SEO优化，所以直接用Vue编写的SPA，可以实现文章内容和视频内容的上传，数据上传至数据库，图片和视频传上至存储桶，上传时触发服务端Nuxt项目进行重新编译，可以直接生成新的静态站点，也每次将新生成的dist文件夹上传到对象存储中，但是因为本身就已经用的服务器编译，所以我就直接在服务器上创建的静态站点，这样便可以实现服务器预渲染的效果
+
+- 所以如果要在本地测试请注意在api接口函数中删除相关预渲染代码
 
 ##### 对象存储
 

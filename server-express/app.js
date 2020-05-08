@@ -4,6 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const mongoConf = require('./config/mongo')
+mongoConf.connect()
+require('./config/util')
+
+
 var articlesRouter = require('./routes/article')
 var videosRouter = require('./routes/video')
 var booksRouter = require('./routes/book')
