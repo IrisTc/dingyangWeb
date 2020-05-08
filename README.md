@@ -141,33 +141,34 @@
 
   `GET    /article?type=`
 
+   这里的和后面的type的取值可以去dingyang-admin项目里面查看（太多了不想写。。。
+  
   获取所有视频信息(暂无分类)：
   
   `GET    /video`
   
   添加文章：
   
+  `POST    /article/add`
 
-`POST    /article/add`
-
-数据格式：
-
-```json
-  {
-    "title": "标题",
-    "description": "简介",
-    "content": "正文",
-    "type": "stock",
-    "coverUrl": "2020.jpg"
-  }
-```
+	数据格式：
+  
+  ```json
+  	{
+    	"title": "标题",
+    	"description": "简介",
+    	"content": "正文",
+    	"type": "stock",
+	  	"coverUrl": "2020.jpg"
+	}
+  ```
 
   *后端接口会自动加上日期和id*
 
   添加视频信息:
 
    `POST	 /video/add`
-
+  
   数据格式：
 
 ```json
@@ -210,6 +211,10 @@
   获取其他信息：
   
   `GET    /huayin/other?type=`
+  
+  增加其他信息：
+  
+  `POST    /huayin/other/add`
   
   ```json
   {
