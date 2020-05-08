@@ -1,7 +1,10 @@
 <template>
   <div class="new-article">
     <div class="top">
-      <h2>新增文章</h2>
+      <div>
+        <h2>dy.tcualhp.cn</h2>
+        <h2>新增文章</h2>
+      </div>
       <button
         :disabled="(title && category) ? null : 'disbaled'"
         @click="post"
@@ -156,7 +159,7 @@ export default {
       this.$refs.md.handleSave();
       let data = {
         title: this.title,
-        desc: this.description,
+        description: this.description,
         content: this.content,
         type: this.category,
         coverUrl: this.coverUrl
@@ -165,7 +168,7 @@ export default {
       this.showTip = true;
       this.tip = "正在编译，请稍等...";
       
-      const url = "/api/article/add";
+      const url = "/api/dingyang/article/add";
       var that = this;
       await axios
         .post(url, JSON.stringify(data), {
@@ -198,6 +201,10 @@ export default {
     },
 
     uploadFile() {
+      const cos = new Cos({
+        SecretId: "AKID2yVkjaEMJ0b25XqZ3HlynLbbOuhEcyrT",
+        SecretKey: "1mHVUCLMzNUKl2SbLpBk3wZpojES9Zrj"
+      });
 
       let filename = Date.now() + ".jpg";
       this.coverUrl = filename;
@@ -209,6 +216,8 @@ export default {
         });
         cos.putObject(
           {
+            Bucket: "dingyang-admin-1301593316" /* 必须 */,
+            Region: "ap-guangzhou" /* 必须 */,
             Key: "coverImg/" + filename /* 必须 */,
             StorageClass: "STANDARD",
             Body: file // 上传文件对象

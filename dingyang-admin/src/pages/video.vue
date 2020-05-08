@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="top">
-      <h2>新增视频</h2>
+      <div>
+        <h2>dy.tcualhp.cn</h2>
+        <h2>新增视频</h2>
+      </div>
       <button
         :disabled="(videoFilename && coverFilename) ? null : 'disbaled'"
         @click="post"
@@ -192,10 +195,16 @@ export default {
       var filename = Date.now() + ".mp4";
       this.videoFilename = filename;
 
+      const cos = new Cos({
+        SecretId: "AKID2yVkjaEMJ0b25XqZ3HlynLbbOuhEcyrT",
+        SecretKey: "1mHVUCLMzNUKl2SbLpBk3wZpojES9Zrj"
+      });
+
       var that = this;
       cos.putObject(
         {
-  
+          Bucket: "dingyang-admin-1301593316" /* 必须 */,
+          Region: "ap-guangzhou" /* 必须 */,
           Key: "videos/" + filename /* 必须 */,
           StorageClass: "STANDARD",
           Body: file // 上传文件对象
@@ -217,7 +226,7 @@ export default {
       this.showTip = true;
       this.tip = "正在编译，请稍等...";
 
-      const url = "/api/video/add";
+      const url = "/api/dingyang/video/add";
       var that = this;
       await axios
         .post(url, JSON.stringify(data), {

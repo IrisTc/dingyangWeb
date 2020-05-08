@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>深圳市华银精治资产管理有限公司</title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/template-web.js"></script>
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="header"></div>
+    <div class="container">
+        <header>
+            <img class="logo" src="images/logo.jpg">
+        </header>
+        <div class="banner">
+            <ul class="nav">
+                <li><strong><a href="index.html">网站首页</a></strong></li>
+                <li><strong><a href="page.html?type=about">关于我们</a></strong></li>
+                <li><strong><a href="page.html?type=team">投资团队</a></strong></li>
+                <li><strong><a href="page.html?type=process">认购流程</a></strong></li>
+                <li><strong><a href="page.html?type=manage">财富管理</a></strong></li>
+                <li><strong><a href="page.html?type=adviser">财务顾问</a></strong></li>
+                <li><strong><a href="page.html?type=steward">私募管家</a></strong></li>
+            </ul>
+            <div class="imgBox">
+                <img class="img-slide img1" src="images/1.jpg" alt="1">
+                <img class="img-slide img2" src="images/2.jpg" alt="2">
+                <img class="img-slide img3" src="images/3.jpg" alt="3">
+            </div>
+        </div>
+        <div class="main">
+            <div class="left card">
+                <div class="title"><strong>旗下产品</strong><span><a href="http://www.szfine.com.cn/ProductList.Asp">更多 &gt;&gt;</a></span></div>
+                <div class="ul">
+                <div class="tip"><strong style="font-size: 14px;padding:3px;">根据监管要求，私募基金产品业绩不在官网披露，最新净值查询请致电公司客服部0755-89811158</strong></div>
+                <ul>
+                    <li>领先十六</li>
+                    <li>精选二期</li>
+                    <li>华银价值</li>
+                    <li>弘金华银</li>
+                    <li>领先十六</li>
+                    <li>华银精选</li>
+                    <li>进取三期</li>
+                    <li>领先八期</li>
+                    <li>领先七期</li>
+                    <li>领先三期</li>
+                    <li>弘金华银</li>
+                    <li>领先六期</li>
+                    <li>华银共同</li>
+                    <li>华银价值</li>
+                    <li>创新六期</li>
+                </ul>
+                </div>
+            </div>
+            <div class="middle">
+                <div class="m-top card">
+                    <div class="title"><strong>新闻中心</strong><span><a href="page.html?type=news&&id=1">更多 &gt;&gt;</a></span></div>
+                    <div class="ul">
+                    <ul id="news">
+                        <script type="text/html" id="tmplt1">
+                            {{each result v i}}
+                            <li>{{@v.a}}</a></li>
+                            {{/each}}
+                        </script>
+                    </ul>
+                    </div>
+                </div>
+                <div class="m-bottom card">
+                    <div class="title"><strong>基金报告</strong><span><a href="page.html?type=report&&id=1">更多 &gt;&gt;</a></span></div>
+                    <div class="ul">
+                    <ul id="report">
+                        <script type="text/html" id="tmplt2">
+                            {{each result v i}}
+                            <li>{{@v.a}}</li>
+                            {{/each}}
+                        </script>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            <div class="right card">
+                <div class="r-title"><strong>公告</strong><span><a href="http://www.szfine.com.cn/ProductList.Asp">更多 &gt;&gt;</a></span></div>
+                <div class="ul">
+                <ul>
+                </ul>
+                </div>
+            </div>
+        </div>
+        <div class="link">
+            <strong>合作伙伴</strong>
+            <div id="ilink">
+                <ul style="width: 2170px;">
+                  <li><a href="http://www.szkingdom.com/" target="_blank"><img src="./深圳市华银精治资产管理有限公司_files/logo_gxzq.jpg" alt="国信证券" width="145" height="50"></a></li>
+                  <li><a href="http://www.szkingdom.com/" target="_blank"><img src="./深圳市华银精治资产管理有限公司_files/logo_jz.jpg" alt="金证股份" width="145" height="50"></a></li>
+                  <li><a href="http://www.hundsun.com/" target="_blank"><img src="./深圳市华银精治资产管理有限公司_files/logo_hs.jpg" alt="恒生电子" width="145" height="50"></a></li>
+                  <li><a href="http://www.newone.com.cn/" target="_blank"><img src="./深圳市华银精治资产管理有限公司_files/logo_zszq.jpg" alt="招商证券" width="145" height="50"></a></li>
+                  <li><a href="http://www.essence.com.cn/" target="_blank"><img src="./深圳市华银精治资产管理有限公司_files/logo_axzq.jpg" alt="安信证券" width="145" height="50" border="0"></a></li>
+                  <li><a href="http://www.cmbchina.com/" target="_blank"><img src="./深圳市华银精治资产管理有限公司_files/logo_zsyh.jpg" alt="招商银行" width="145" height="50"></a></li>
+                  <li><a href="http://www.ecitic.com/" target="_blank"><img src="./深圳市华银精治资产管理有限公司_files/logo_zxyh.jpg" alt="中信银行" width="145" height="50"></a></li>
+                <li><a href="http://www.szkingdom.com/" target="_blank"><img src="./深圳市华银精治资产管理有限公司_files/logo_gxzq.jpg" alt="国信证券" width="145" height="50"></a></li><li><a href="http://www.szkingdom.com/" target="_blank"><img src="./深圳市华银精治资产管理有限公司_files/logo_jz.jpg" alt="金证股份" width="145" height="50"></a></li><li><a href="http://www.hundsun.com/" target="_blank"><img src="./深圳市华银精治资产管理有限公司_files/logo_hs.jpg" alt="恒生电子" width="145" height="50"></a></li><li><a href="http://www.newone.com.cn/" target="_blank"><img src="./深圳市华银精治资产管理有限公司_files/logo_zszq.jpg" alt="招商证券" width="145" height="50"></a></li><li><a href="http://www.essence.com.cn/" target="_blank"><img src="./深圳市华银精治资产管理有限公司_files/logo_axzq.jpg" alt="安信证券" width="145" height="50" border="0"></a></li><li><a href="http://www.cmbchina.com/" target="_blank"><img src="./深圳市华银精治资产管理有限公司_files/logo_zsyh.jpg" alt="招商银行" width="145" height="50"></a></li><li><a href="http://www.ecitic.com/" target="_blank"><img src="./深圳市华银精治资产管理有限公司_files/logo_zxyh.jpg" alt="中信银行" width="145" height="50"></a></li></ul>
+              </div>
+        </div>
+    
+        <!--底部 -->
+    <div class="foot">
+        <div class="footnav">
+        <a href="http://www.szfine.com.cn/Index.Asp">网站首页</a> |
+        <a href="http://www.szfine.com.cn/About.Asp">关于我们</a> |
+        <a href="http://www.szfine.com.cn/About.Asp?ID=3">投资团队</a> |
+        <a href="http://www.szfine.com.cn/ProductList.Asp">旗下产品</a> |
+        <a href="http://www.szfine.com.cn/NewsList.Asp?SortID=2">基金报告</a> |
+        <a href="http://www.szfine.com.cn/About.Asp?ID=5">认购流程</a> |
+        <a href="http://www.szfine.com.cn/About.Asp?ID=6">财富管理</a> |
+        <a href="http://www.szfine.com.cn/About.Asp?ID=7">财务顾问</a> |
+        <a href="http://www.szfine.com.cn/About.Asp?ID=8">私募管家</a>
+        </div>
+        <div class="copy">
+            Copyright ©  2008-2018 FineHedgefunds. All Rights Reserved. Email: huayinjingzhi@163.com<br>
+            版权所有 © 深圳市华银精治资产管理有限公司  <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备14083240号</a><br>
+            <img src="./深圳市华银精治资产管理有限公司_files/bg_foot.jpg" width="249" height="52">
+        </div>
+    </div>
+  <!--底部OVER -->
+</div>
+</div>
+</body>
+</html>
+<script>
+    window.onload = init;
+    function init() {
+        //设置定时器，每隔两秒切换一张图片
+        setInterval(ChangeImg,1000);
+        //实现图片循环滚动
+        setInterval(fnMove,200)
+    }
+
+
+    var index=0;
+    //改变图片
+    function ChangeImg() {
+        index++;
+        var a=document.getElementsByClassName("img-slide");
+        if(index>=a.length) index=0;
+        for(var i=0;i<a.length;i++){
+            a[i].style.display='none';
+        }
+        a[index].style.display='block';
+    }
+
+     var oDiv = document.getElementById("ilink");
+     var oUl = oDiv.childNodes[1];
+     var oLi = oUl.getElementsByTagName("li");
+     var iSpeed = 8;
+     //复制一遍ul
+     oUl.innerHTML +=oUl.innerHTML;
+     //ul的宽度是所有li宽度之和，复制ul之后的整个ul的宽度就是li的长度乘以一个li的宽度
+    oUl.style.width = oLi.length*oLi[0].offsetWidth + "px";
+    function fnMove()
+    {
+        //给ul一个速度让整个ul的offsetLeft增加或减少，速度为正则向右移动，速度为负则向左移动
+        oUl.style.left = oUl.offsetLeft + 8 +'px';
+        //图片向左移动时的条件，即在div里的ul的offsetLeft小于一个ul的宽度
+        if (oUl.offsetLeft<-oUl.offsetWidth/2)
+        {
+            //将整个复制的ul向右拖拽直至整个ul中的第一张图归位到起点
+            oUl.style.left = 0;
+        }
+        //图片向右移动时的条件，即在div里的ul的offsetLeft大于等于0
+        else if (oUl.offsetLeft>=0)
+        {
+            //将整个复制的ul向左拖拽直至整个ul中的第一张图归位到起点
+            oUl.style.left = -oUl.offsetWidth/2 + "px";
+        }
+     }
+     
+</script>

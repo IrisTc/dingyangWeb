@@ -35,11 +35,37 @@
         id="bs-example-navbar-collapse-1"
       >
         <ul class="nav navbar-nav navbar-right">
-          <li class="c">
-            <router-link to="/article">文章</router-link>
+          <li><a href="http://dy.tcualhp.cn/" target="_blank">dy.tcualhp.cn</a></li>
+          <li class="dropdown">
+            <a
+              href="#"
+              class="dropdown-toggle"
+              data-toggle="dropdown"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >dingyang<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><router-link to="/article">文章</router-link></li>
+              <li><router-link to="/video">视频</router-link></li>
+            </ul>
           </li>
-          <li class="c">
-            <router-link to="/video">视频</router-link>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="https://hy.tcualhp.cn/" target="_blank">hy.tcualhp.cn</a></li>
+          <li class="dropdown">
+            <a
+              href="#"
+              class="dropdown-toggle"
+              data-toggle="dropdown"
+              role="button"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >huayin<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><router-link to="/hyarticle">新闻/报告</router-link></li>
+              <li><router-link to="/hyothers">其他</router-link></li>
+            </ul>
           </li>
         </ul>
       </div><!-- /.navbar-collapse -->
@@ -51,6 +77,5 @@
 @import '../assets/style/header.scss';
 </style>
 <script>
-
 export default {};
 </script>

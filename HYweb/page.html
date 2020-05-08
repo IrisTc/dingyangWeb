@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>深圳市华银精治资产管理有限公司</title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/template-web.js"></script>
+    <script src="js/data.js"></script>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/page.css">
+</head>
+<body>
+    <div class="header"></div>
+    <div class="container">
+        <header>
+            <img class="logo" src="images/logo.jpg">
+        </header>
+        <div class="banner">
+            <ul class="nav">
+                <li><a href="index.html">网站首页</a></li>
+                <li><a href="page.html?type=about">关于我们</a></li>
+                <li><a href="page.html?type=team">投资团队</a></li>
+                <li><a href="page.html?type=process">认购流程</a></li>
+                <li><a href="page.html?type=manage">财富管理</a></li>
+                <li><a href="page.html?type=adviser">财务顾问</a></li>
+                <li><a href="page.html?type=steward">私募管家</a></li>
+            </ul>
+            <div class="imgBox">
+                <img class="img-slide img1" src="images/1.jpg" alt="1">
+                <img class="img-slide img2" src="images/2.jpg" alt="2">
+                <img class="img-slide img3" src="images/3.jpg" alt="3">
+            </div>
+        </div>
+        <div class="main clearfix">
+            <div class="left card ">
+                <div class="title"><strong>关于我们</strong><span><a href="page.html?type=about">更多 &gt;&gt;</a></span></div>
+                <div class="ul aside">
+                    <ul>
+                        <li><a href="/page?type=team"><div class="dot"></div>投资团队</a></li>
+                        <li><a href="/page?type=idea"><div class="dot"></div>投资理念</a></li>
+                        <li><a href="/page?type=process"><div class="dot"></div>认证流程</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right" id="article">
+                <script type="text/html" id="tmplt">
+                    <div class="breadNav">
+                        当前位置：首页-{{result[0].typeTitle}}<span></span>
+                    </div>
+                    <div class="card">
+                        <div class="r-title"><strong>{{result[0].typeTitle}}</strong></div>
+                        <div class="content">
+                            <div class="center"><h3>{{result[0].title}}</h3></div>
+                            <span class="date">{{result[0].date}}</span>
+                            <p>{{result[0].content}}</p>  
+                        </div>
+                    </div>
+                </script>
+            </div>
+        </div>
+        <!--底部 -->
+        <div class="foot">
+            <div class="footnav">
+            <a href="/index">网站首页</a> |
+            <a href="/page?type=about">关于我们</a> |
+            <a href="/page?type=team">投资团队</a> |
+            <a href="/page?type=product">旗下产品</a> |
+            <a href="/page?type=report">基金报告</a> |
+            <a href="/page?type=process">认购流程</a> |
+            <a href="/page?type=manage">财富管理</a> |
+            <a href="/page?type=adviser">财务顾问</a> |
+            <a href="/page?type=steward">私募管家</a>
+            </div>
+            <div class="copy">
+                Copyright ©  2008-2018 FineHedgefunds. All Rights Reserved. Email: huayinjingzhi@163.com<br>
+                版权所有 © 深圳市华银精治资产管理有限公司  <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备14083240       号</a><br>
+                <img src="./深圳市华银精治资产管理有限公司_files/bg_foot.jpg" width="249" height="52">
+            </div>
+        </div>
+        <!--底部OVER -->
+</div>
+</body>
+</html>

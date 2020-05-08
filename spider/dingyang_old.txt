@@ -1,0 +1,4 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>丁洋个人主页</title><script src=https://cdn.polyfill.io/v2/polyfill.min.js></script><!--[if lt IE 9]>
+      <script src="src/style/lib/html5shiv.min.js"></script>
+      <script src="src/style/lib/respond.min.js"></script>
+    <![endif]--><link href=./static/css/main.6f8e2feb7e8d59db365b10e611c627e3.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=./static/js/manifest.3ad1d5771e9b13dbdad2.js></script><script type=text/javascript src=./static/js/vendor.4f0c04177ff9aa34687a.js></script><script type=text/javascript src=./static/js/main.cca2e8c0a5326a5af856.js></script></body></html>
