@@ -5,8 +5,8 @@
 - dingyang-nuxt为Nuxt重构项目
 - server-express为服务器端api server
 - HYweb为纯html、js、css和模板引擎实现的简单网页
-- spider用来爬取静态站点，可以看到SEO优化
-- mock为之前的假数据
+- spider可以用来爬取静态站点，看到SEO优化
+- mock为之前使用的假数据
 
 ### dingyang1.0
 
@@ -16,41 +16,57 @@
 
 从静态页面+传统后端渲染 过渡到 **vue的前端渲染技术+api server后端的单页应用**
 
+**本地运行**：
+
+- 安装依赖：`npm/cnpm install`
+
+- 启动项目：在根目录下执行`npm run dev/npm start`，启动完成后如图所示，在浏览器中打开即可
+
+  ![2257137-0097b4492d5893fd](C:\Users\TC\Desktop\2257137-0097b4492d5893fd.webp)
+
+- 打包编译：`npm run build`，会看到在根目录下生成了生产环境用的dist文件夹
+
+**代码结构**
+
+使用`vue-cli`脚手架（ 官方文档：https://cli.vuejs.org/zh/ ）工具开发，重新结构化原代码后，组件和页面分开
+
+- assets存放一些图片
+- components：组件目录
+- router：路由配置
+- style：所有页面及组件样式，样式这里用了sass语法
+- views：所有页面
+- static中的lib存放引入的插件，其他的图片和视频资源没有用在项目中
+
+**模拟数据**
+
 *由于Vue是很早完成的版本，在使用Nuxt框架之后就没有修改过，当时的接口和现在的不太一样，所以现在页面是没有数据的，如果需要的话可以自己添加mock数据或者将使用接口的地方修改成和nuxt一样的*
 
-- 使用`vue-cli`脚手架工具开发，重新结构化原代码后，组件和页面分开，大致代码结构：
+`webpack`可以直接配置mock数据
 
-  - assets存放一些图片
-  - components：组件目录
-  - router：路由配置
-  - style：所有页面及组件样式
-  - views：所有页面
-  - static中的lib存放引入的插件，其他的图片和视频资源没有用在项目中
+```js
+//webpack.dev.conf
+const express = require('express')
+const app = express()
+const appData = require('./../src/mock/article.json')
+var apiRoutes = express.Router()
+app.use('/api', apiRoutes)
 
-- `webpack`也可以直接配置mock数据
-
-  ```js
-  //webpack.dev.conf
-  const express = require('express')
-  const app = express()
-  const appData = require('./../src/mock/article.json')
-  var apiRoutes = express.Router()
-  app.use('/api', apiRoutes)
-  
-  //在devSever里面添加
-  before(app){
-        app.get('/api/article',(req,res)=>{
-          res.json({
-            error: 0,
-            data: appData
-          })
+//在devSever里面添加
+before(app){
+      app.get('/api/article',(req,res)=>{
+        res.json({
+          error: 0,
+          data: appData
         })
-      }
-  
-  var res = result.data;
-  ```
+      })
+    }
 
-- 用babel转译模块化语法之后会报错`Uncaught ReferenceError: require is not defined`，也就是不支持模块化，用  [@babel/polyfill](https://babeljs.io/docs/en/babel-polyfill) 插件可以解决这个问题，它会在全局变量上添加一些类似于原生的方法。注意要添加配置
+var res = result.data;
+```
+
+**相关配置**
+
+- 用babel转译模块化语法之后会报错`Uncaught ReferenceError: require is not defined`，也就是不支持模块化，用  [@babel/polyfill](https://babeljs.io/docs/en/babel-polyfill) 插件可以解决这个问题，它会在全局变量上添加一些类似于原生的方法。注意要添加配置：
 
   ```js
   //build/webpack.base.conf
@@ -59,10 +75,6 @@
 
 - vue中可以直接用sass语法，但是得安装相关包`node-sass sass-loader`
 
-- 使用bootstrap支持响应式和兼容IE，具体用到了栅格系统和导航栏组件等
-
-  相关文档： https://v3.bootcss.com/css/ 
-
 - Vue项目打包后路径问题的解决办法
 
   ```js
@@ -70,69 +82,104 @@
   assetsPublicPath: './'
   ```
 
+- 使用bootstrap支持响应式和兼容IE，引用方法如下：
+
+  ```html
+  //index.html
+  <link rel="stylesheet" href="./static/lib/bootstrap/css/bootstrap.min.css">
+  <script src="./static/lib/bootstrap/js/bootstrap.min.js"></script>
+  ```
+
+**bootstrap框架**
+
+具体用到了栅格系统和导航栏组件和图标
+
+相关文档： https://v3.bootcss.com/css/ 
+
+**注意事项**
+
 - vue的样式默认是全局的，所以需要设置scoped确保局部使用，避免全局污染
+
 
 ### dingyang-nuxt
 
-**服务端渲染/生成静态站点方案**
+服务端渲染/生成静态站点方案
 
-- 基本就是把Vue项目移植过来，项目目录结构和动态路由不太一样
+**本地运行**：
 
-  相关文档： https://www.nuxtjs.cn/guide 
+- 安装依赖：`npm/cnpm install`
 
-  - assets存放图片和样式资源
-  - components：组件目录
-  - layouts：入口文件
-  - pages：页面文件
-  - nuxt会依据pages目录结构自动生成vue-router模块的路由配置
+- 启动项目：在根目录执行`npm run dev`，完成后访问http://localhost:3000即可
 
-- `npm run build` 可以实现服务器渲染
+  ![4](C:\Users\TC\Desktop\4.PNG)
 
-- `npm run generate` 可以编译出静态化页面， 每个对应的页面都会生成一个文件夹里面有个`html`文件，相当于展示出来是一个完全静态的网站
+- 服务器渲染编译（发布用 ）：`npm run build`，可以看见根目录出现了.nuxt文件夹，启动项目时也会执行这一步
 
-- 用到的Vue组件
+- 静态文件编译：`npm run generate`，根目录会多出dist文件夹，内容为纯静态页面
 
-  - vue-markdown
+**代码结构**
 
-    支持渲染markdown格式文本
+基本就是把Vue项目移植过来，项目目录结构和动态路由不太一样
 
-  - vue-meditor
+相关文档： https://www.nuxtjs.cn/guide 
 
-    markdown编辑器
+- assets存放图片和样式资源
+- components：组件目录
+- layouts：入口文件
+- pages：页面文件
+- nuxt会依据pages目录结构自动生成vue-router模块的路由配置
 
-  - vue-cropper
+**用到的组件**
 
-    功能全覆盖的裁剪图片工具
+- vue-markdown
 
-- 在 Nuxt.js 执行 `geneate` 命令时，动态路由会被忽略
+  支持渲染markdown格式文本
 
-  - 解决方法：如果想让 Nuxt.js 为动态路由也生成静态文件，需要指定动态路由参数的值，并配置到 `routes` 数组中去
+- vue-meditor
 
-  - 但是由于该项目的页面数量动态的而不是固定的，用户每添加一篇文章是要增加一个页面的，所以使用回调函数访问数据库返回
+  markdown编辑器
 
-    ```js
-      generate: {
-        routes: function (callback){
-          return axios.get("http://service-jex1lh0j-1301593316.sh.apigw.tencentcs.com/release/count").then((res) => {
-            const routes = res.data.result.map((item) => {
-              if(item.type === 'article'){
-                  return '/article/' + item.category +'/' + item.id
-              }
-              else{
-                  return '/video/' + item.id
-              }          
-            })
-            callback(null, routes)
+- vue-cropper
+
+  功能全覆盖的裁剪图片工具
+
+**注意事项**
+
+在 Nuxt.js 执行 `geneate` 命令时，动态路由会被忽略
+
+- 解决方法：如果想让 Nuxt.js 为动态路由也生成静态文件，需要指定动态路由参数的值，并配置到 `routes` 数组中去
+
+- 但是由于该项目的页面数量动态的而不是固定的，用户每添加一篇文章是要增加一个页面的，所以使用回调函数访问数据库返回
+
+  ```js
+    generate: {
+      routes: function (callback){
+        return axios.get("http://service-jex1lh0j-1301593316.sh.apigw.tencentcs.com/release/count").then((res) => {
+          const routes = res.data.result.map((item) => {
+            if(item.type === 'article'){
+                return '/article/' + item.category +'/' + item.id
+            }
+            else{
+                return '/video/' + item.id
+            }          
           })
-        }
+          callback(null, routes)
+        })
       }
-    ```
+    }
+  ```
 
 ### server-express
 
-- 数据库使用的是MongoDB，服务器端用Node.js搭建了一个简单的基于Express框架的运行环境，目前云函数和服务器端都有相同的接口
+**本地运行：**
 
-- 如果要在本地测试注意删除Nuxt相关预渲染代码
+- 安装依赖：`npm/cnpm install`
+
+- 启动服务：`npm start`或者`node bin/www`，启动完成后服务已经建立在3004端口（可以自行去www文件修改端口号）
+
+  ![3](C:\Users\TC\Desktop\3.PNG)
+
+- 已经注释掉了Nuxt相关预渲染代码，这是在服务器上用来增加文章时对前端进行的重新编译
 
   ```js
   shell.cd('/www/wwwroot/dy.tcualhp.cn/dingyang-nuxt')
@@ -142,47 +189,51 @@
    }
   ```
 
-- 接口调用：
+**数据库**：
 
-  URL前缀：`dy.tcualhp/api`
+- 数据库使用的是MongoDB，连接上的是我服务器上的数据库，看到MongoDB connect success即代表成功连接，服务器端用Node.js搭建了一个简单的基于Express框架的运行环境，目前云函数和服务器端都有相同的接口
 
-  获取所有文章信息：
+**接口设计**
 
-  `GET    /article`
+URL前缀：`dy.tcualhp/api`
 
-  获取某类型文章信息：
+获取所有文章信息：
 
-  `GET    /article?type=`
+`GET    /article`
 
-   这里的和后面的type的取值可以去dingyang-admin项目里面查看（太多了不想写。。。
-  
-  获取所有视频信息(暂无分类)：
-  
-  `GET    /video`
-  
-  添加文章：
-  
-  `POST    /article/add`
+获取某类型文章信息：
 
-	数据格式：
-  
-  ```json
-  	{
-    	"title": "标题",
-    	"description": "简介",
-    	"content": "正文",
-    	"type": "stock",
-	  	"coverUrl": "2020.jpg"
-	}
-  ```
+`GET    /article?type=`
 
-  *后端接口会自动加上日期和id*
+ 这里的和后面的type的取值可以去dingyang-admin项目里面查看（太多了不想写。。。
 
-  添加视频信息:
+获取所有视频信息(暂无分类)：
 
-   `POST	 /video/add`
-  
-  数据格式：
+`GET    /video`
+
+添加文章：
+
+`POST    /article/add`
+
+数据格式：
+
+```json
+	{
+  	"title": "标题",
+  	"description": "简介",
+  	"content": "正文",
+  	"type": "stock",
+  	"coverUrl": "2020.jpg"
+}
+```
+
+*后端接口会自动加上日期和id*
+
+添加视频信息:
+
+ `POST	 /video/add`
+
+数据格式：
 
 ```json
   {
@@ -198,7 +249,7 @@
 
   相关文档： https://cloud.tencent.com/document/product/1154/39269 
 
-- 后来加上了hy.tcualhp.cn的接口如下
+- 后来加上的hy.tcualhp.cn的接口如下（仅服务器端有
 
   获取某类文章信息：
 
@@ -248,16 +299,18 @@
 
 ### dingyang-admin
 
-因为管理不需要SEO优化，所以直接用Vue编写的SPA，可以实现文章内容和视频内容的上传，数据上传至数据库，图片和视频传上至存储桶，上传时触发服务端Nuxt项目进行重新编译，可以直接生成新的静态站点，也每次将新生成的dist文件夹上传到对象存储中，但是因为本身就已经用的服务器编译，所以我就直接在服务器上创建的静态站点，这样便可以实现服务器预渲染的效果
+**本地运行：**同Vue项目
 
-- 所以如果要在本地测试请注意在api接口函数中删除相关预渲染代码
+因为管理不需要SEO优化，所以直接用Vue编写的SPA，可以实现文章内容和视频内容的上传，数据上传至数据库，图片和视频传上至存储桶，上传时触发服务端Nuxt项目进行重新编译，可以直接生成新的静态站点，也每次将新生成的dist文件夹上传到对象存储中，但是因为本身就已经用的服务器编译，所以就直接在服务器上创建的静态站点，这样便可以实现服务器预渲染的效果
+
+- 所以如果要在本地测试请注意在api接口函数中没有相关预渲染代码
 
 ##### 对象存储
 
 - 对象存储（Cloud Object Storage，COS）是腾讯云提供的 一种存储海量文件的分布式存储服务，用户可通过网络随时存储和查看数据 
 - 例如，创建了一个叫dingyang-admin的存储桶（名字后面会自动加上你的appid），里面有coverImg和video两个文件夹，便可以这样访问里面的图片：`https://dingyang-admin-1301593316.cos.ap-guangzhou.myqcloud.com/coverImg/1.jpg`
 
-##### 存储
+##### 存储方式
 
 - 图片和视频资源在前端直接上传至腾讯云的对象存储桶中，上传方式：
 
@@ -297,7 +350,7 @@
   - 官方提供了事例：在 COS Bucket 上传图片，云函数可以立刻得到通知，并可以立刻获取图片进行相应的图片剪裁、缩略、水印等操作，实现图片的自动化处理，还可以在处理完成后写入数据库，便于后续选择使用已处理好的图片
   - 所以理想状态下，如果将Nuxt项目上传至云函数，当用户增加文章上传图片时即可触发云函数重新编译，再将新的打包文件上传至存储桶更新（静态网站可以直接将编译打包好的dist文件夹上传至云存储桶，分配API网关即可访问），即可用云服务实现纯静态化网站的实时编译。但是后来我用scf工具上传（用于上传云函数代码并直接部署）代码之后，因为项目过大会自动将项目打包成zip包传到了存储桶里面，云函数这边只有入口函数，也就不可能实现在云函数执行编译，所以最终还是选择在服务器执行编译的过程
 
-### 云服务
+### 附：云服务相关
 
 ##### 技术理解
 
@@ -378,4 +431,3 @@ URL前缀：`http://service-jex1lh0j-1301593316.sh.apigw.tencentcs.com/release`
       runtime: Nodejs8.9
   ```
 
-##### 
