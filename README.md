@@ -22,7 +22,7 @@
 
 - 启动项目：在根目录下执行`npm run dev/npm start`，启动完成后如图所示，在浏览器中打开即可
 
-  ![vue]( https://github.com/IrisTc/dingyangWeb/blob/master/doc/1.jpg )
+  ![vue]( http://ts.tcualhp.cn/doc/vue.PNG )
 
 - 打包编译：`npm run build`，会看到在根目录下生成了生产环境用的dist文件夹
 
@@ -111,7 +111,7 @@ var res = result.data;
 
 - 启动项目：在根目录执行`npm run dev`，完成后访问http://localhost:3000即可
 
-  ![4]( https://github.com/IrisTc/dingyangWeb/blob/master/doc/4.PNG )
+  ![4](  http://ts.tcualhp.cn/doc/nuxt.PNG  )
 
 - 服务器渲染编译（发布用 ）：`npm run build`，可以看见根目录出现了.nuxt文件夹，启动项目时也会执行这一步
 
@@ -177,7 +177,7 @@ var res = result.data;
 
 - 启动服务：`npm start`或者`node bin/www`，启动完成后服务已经建立在3004端口（可以自行去www文件修改端口号）
 
-  ![3]( https://github.com/IrisTc/dingyangWeb/blob/master/doc/3.PNG )
+  ![3](  http://ts.tcualhp.cn/doc/express.PNG  )
 
 - 已经注释掉了Nuxt相关预渲染代码，这是在服务器上用来增加文章时对前端进行的重新编译
 
