@@ -6,8 +6,7 @@ import router from './router'
 import 'babel-polyfill'
 import promise from 'es6-promise'
 import './style/reset.css';
-import './style/lib/jquery.min.js'
-import './style/lib/bootstrap/js/bootstrap.min.js'
+import '../static/lib/jquery.min.js'
 promise.polyfill()
 
 
