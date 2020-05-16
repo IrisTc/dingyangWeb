@@ -10,22 +10,22 @@ import '../static/lib/bootstrap/css/bootstrap.min.css'
 import '../static/lib/bootstrap/js/bootstrap.min.js'
 
 promise.polyfill()
-//全局拦截
-// router.beforeEach((to, from, next) => {
-//   if (to.matched.some(record => record.meta.requireAuth)) {
-//     console.log(getCookie('UserName'))
-//     if (getCookie('UserName') != null) {
-//       next()
-//     } else {
-//       console.log('to login')
-//       next({
-//         path: '/login'
-//       })
-//     }
-//   } else {
-//     next()
-//   }
-// })
+全局拦截
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requireAuth)) {
+    console.log(getCookie('UserName'))
+    if (getCookie('UserName') != null) {
+      next()
+    } else {
+      console.log('to login')
+      next({
+        path: '/login'
+      })
+    }
+  } else {
+    next()
+  }
+})
 
 
 Vue.config.productionTip = false
