@@ -46,17 +46,16 @@
   }
 
   .tips {
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
     .cover {
+      margin-top: 20px;
+      margin-bottom: 100px;
       display: flex;
       flex-direction: column;
-      width: 450px;
       .image {
         position: absolute;
-        right: 130px;
-        top: 200px;
+        right: 0px;
+        top: 0px;
         img {
           height: 239.2px;
           width: 183.2px;
@@ -80,7 +79,7 @@
       select,
       input[type="text"],
       textarea {
-        width: 420px;
+        width: 60%;
         font-size: 16px;
         color: black;
         background-color: #fffaf2;
@@ -90,9 +89,6 @@
         &:focus-within {
           border: 2px solid #e89a3f;
         }
-      }
-      select {
-        width: 300px;
       }
       textarea {
         height: 120px;

@@ -11,11 +11,11 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 const express = require('express')
 const app = express()
-// const articleData = require('./../src/mock/articles.json')
-// const videoData = require('./../src/mock/videos.json')
-// const bookData = require('./../src/mock/books.json')
-// var apiRoutes = express.Router()
-// app.use('/api', apiRoutes)
+const articleData = require('../../mock/articles.json')
+const videoData = require('../../mock/videos.json')
+const bookData = require('../../mock/books.json')
+var apiRoutes = express.Router()
+app.use('/api', apiRoutes)
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
@@ -50,26 +50,26 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     watchOptions: {
       poll: config.dev.poll,
     },
-    // before(app){
-    //   app.get('/api/articles',(req,res)=>{
-    //     res.json({
-    //       error: 0,
-    //       data: articleData
-    //     })
-    //   }),
-    //   app.get('/api/videos',(req,res)=>{
-    //     res.json({
-    //       error: 0,
-    //       data: videoData
-    //     })
-    //   }),
-    //   app.get('/api/books',(req,res)=>{
-    //     res.json({
-    //       error: 0,
-    //       data: bookData
-    //     })
-    //   })
-    // }
+    before(app){
+      app.get('/api/articles',(req,res)=>{
+        res.json({
+          error: 0,
+          data: articleData
+        })
+      }),
+      app.get('/api/videos',(req,res)=>{
+        res.json({
+          error: 0,
+          data: videoData
+        })
+      }),
+      app.get('/api/books',(req,res)=>{
+        res.json({
+          error: 0,
+          data: bookData
+        })
+      })
+    }
   },
   plugins: [
     new webpack.DefinePlugin({

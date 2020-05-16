@@ -11,7 +11,7 @@
       >发布</button>
     </div>
     <div class="tips">
-      <div class="editor">
+      <div class="editor col-lg-7 col-md-6 col-sm-12 col-xs-12">
         <div class="category">
           <h3>类别</h3>
           <select v-model="category">
@@ -37,7 +37,7 @@
           />
           </div>
     </div>
-    <div class="cover">
+    <div class="cover col-lg-5 col-md-6 col-sm-12 col-xs-12">
       <h3>封面</h3>
       <div class="image"><img :src="imgUrl"></div>
       <p>已使用默认封面</p>

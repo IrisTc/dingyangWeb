@@ -45,13 +45,14 @@ export default {
     },
     methods: {
         getArticles(){
-          axios.get("https://service-neh664ng-1301593316.gz.apigw.tencentcs.com/release/article").then((result)=>{
+          axios.get("/api/articles").then((result)=>{
             console.log(result);
-            var articles = result.data[0];
+            var articles = result.data.data;
+            console.log(articles)
             this.Predictions = articles.Predictions;
             this.Stocks = articles.Stocks;
             this.Researches = articles.Researches;
-            this.Investments = articles.Investments;
+            this.Investments = articles.Investments; 
           })
         },
         getVideos(){
